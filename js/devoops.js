@@ -13,7 +13,7 @@
 function LoadCalendarScript(callback){
 	function LoadFullCalendarScript(){
 		if(!$.fn.fullCalendar){
-			$.getScript('plugins/fullcalendar/fullcalendar.js', callback);
+			$.getScript('bower_components/fullcalendar/dist/fullcalendar.min.js', callback);
 		}
 		else {
 			if (callback && typeof(callback) === "function") {
@@ -22,7 +22,7 @@ function LoadCalendarScript(callback){
 		}
 	}
 	if (!$.fn.moment){
-		$.getScript('plugins/moment/moment.min.js', LoadFullCalendarScript);
+		$.getScript('bower_components/moment/moment.js', LoadFullCalendarScript);
 	}
 	else {
 		LoadFullCalendarScript();
@@ -34,7 +34,7 @@ function LoadCalendarScript(callback){
 //
 function LoadOpenLayersScript(callback){
 	if (!$.fn.OpenLayers){
-		$.getScript('http://www.openlayers.org/api/OpenLayers.js', callback);
+		$.getScript('bower_components/openlayers/lib/OpenLayers.js', callback);
 	}
 	else {
 		if (callback && typeof(callback) === "function") {
@@ -48,7 +48,7 @@ function LoadOpenLayersScript(callback){
 //
 function LoadLeafletScript(callback){
 	if (!$.fn.L){
-		$.getScript('plugins/leaflet/leaflet.js', callback);
+		$.getScript('bower_components/leaflet/dist/leaflet.js', callback);
 	}
 	else {
 		if (callback && typeof(callback) === "function") {
@@ -62,7 +62,7 @@ function LoadLeafletScript(callback){
 //
 function LoadTimePickerScript(callback){
 	if (!$.fn.timepicker){
-		$.getScript('plugins/jquery-ui-timepicker-addon/jquery-ui-timepicker-addon.min.js', callback);
+		$.getScript('bower_components/jqueryui-timepicker-addon/jquery-ui-timepicker-addon.min.js', callback);
 	}
 	else {
 		if (callback && typeof(callback) === "function") {
@@ -76,7 +76,7 @@ function LoadTimePickerScript(callback){
 //
 function LoadBootstrapValidatorScript(callback){
 	if (!$.fn.bootstrapValidator){
-		$.getScript('plugins/bootstrapvalidator/bootstrapValidator.min.js', callback);
+		$.getScript('bower_components/bootstrapvalidator/dist/js/bootstrapValidator.min.js', callback);
 	}
 	else {
 		if (callback && typeof(callback) === "function") {
@@ -90,7 +90,7 @@ function LoadBootstrapValidatorScript(callback){
 //
 function LoadSelect2Script(callback){
 	if (!$.fn.select2){
-		$.getScript('plugins/select2/select2.min.js', callback);
+		$.getScript('bower_components/select2/dist/js/select2.min.js', callback);
 	}
 	else {
 		if (callback && typeof(callback) === "function") {
@@ -104,12 +104,10 @@ function LoadSelect2Script(callback){
 //
 function LoadDataTablesScripts(callback){
 	function LoadDatatables(){
-		$.getScript('plugins/datatables/jquery.dataTables.js', function(){
-			$.getScript('plugins/datatables/ZeroClipboard.js', function(){
-				$.getScript('plugins/datatables/TableTools.js', function(){
-					$.getScript('plugins/datatables/dataTables.bootstrap.js', callback);
+		$.getScript('bower_components/datatables/media/js/jquery.dataTables.min.js', function(){
+				$.getScript('bower_components/datatables-tabletools/js/dataTables.tableTools.js', function(){
+					$.getScript('bower_components/datatables/media/js/dataTables.bootstrap.min.js', callback);
 				});
-			});
 		});
 	}
 	if (!$.fn.dataTables){
@@ -127,7 +125,7 @@ function LoadDataTablesScripts(callback){
 //
 function LoadFineUploader(callback){
 	if (!$.fn.fineuploader){
-		$.getScript('plugins/fineuploader/jquery.fineuploader-5.0.5.min.js', callback);
+		$.getScript('bower_components/fine-uploader/_build/jquery.fine-uploader.min.js', callback);
 	}
 	else {
 		if (callback && typeof(callback) === "function") {
@@ -142,11 +140,11 @@ function LoadFineUploader(callback){
 //
 function LoadXChartScript(callback){
 	function LoadXChart(){
-		$.getScript('plugins/xcharts/xcharts.min.js', callback);
+		$.getScript('bower_components/bower-xcharts/xcharts.min.js', callback);
 	}
 	function LoadD3Script(){
 		if (!$.fn.d3){
-			$.getScript('plugins/d3/d3.min.js', LoadXChart)
+			$.getScript('bower_components/d3/d3.min.js', LoadXChart)
 		}
 		else {
 			LoadXChart();
@@ -167,13 +165,13 @@ function LoadXChartScript(callback){
 //
 function LoadFlotScripts(callback){
 	function LoadFlotScript(){
-		$.getScript('plugins/flot/jquery.flot.js', LoadFlotResizeScript);
+		$.getScript('bower_components/flot/jquery.flot.js', LoadFlotResizeScript);
 	}
 	function LoadFlotResizeScript(){
-		$.getScript('plugins/flot/jquery.flot.resize.js', LoadFlotTimeScript);
+		$.getScript('bower_components/flot/jquery.flot.resize.js', LoadFlotTimeScript);
 	}
 	function LoadFlotTimeScript(){
-		$.getScript('plugins/flot/jquery.flot.time.js', callback);
+		$.getScript('bower_components/flot/jquery.flot.time.js', callback);
 	}
 	if (!$.fn.flot){
 		LoadFlotScript();
@@ -192,7 +190,7 @@ function LoadFlotScripts(callback){
 function LoadMorrisScripts(callback){
 	function LoadMorrisScript(){
 		if(!$.fn.Morris){
-			$.getScript('plugins/morris/morris.min.js', callback);
+			$.getScript('bower_components/morris.js/morris.min.js', callback);
 		}
 		else {
 			if (callback && typeof(callback) === "function") {
@@ -201,7 +199,7 @@ function LoadMorrisScripts(callback){
 		}
 	}
 	if (!$.fn.raphael){
-		$.getScript('plugins/raphael/raphael-min.js', LoadMorrisScript);
+		$.getScript('bower_components/raphael/raphael-min.js', LoadMorrisScript);
 	}
 	else {
 		LoadMorrisScript();
@@ -213,16 +211,16 @@ function LoadMorrisScripts(callback){
 //
 function LoadAmchartsScripts(callback){
 	function LoadAmchartsScript(){
-		$.getScript('plugins/amcharts/amcharts.js', LoadFunnelScript);
+		$.getScript('bower_components/amcharts/dist/amcharts/amcharts.js', LoadFunnelScript);
 	}
 	function LoadFunnelScript(){
-		$.getScript('plugins/amcharts/funnel.js', LoadSerialScript);
+		$.getScript('bower_components/amcharts/dist/amcharts/funnel.js', LoadSerialScript);
 	}
 	function LoadSerialScript(){
-		$.getScript('plugins/amcharts/serial.js', LoadPieScript);
+		$.getScript('bower_components/amcharts/dist/amcharts/serial.js', LoadPieScript);
 	}
 	function LoadPieScript(){
-		$.getScript('plugins/amcharts/pie.js', callback);
+		$.getScript('bower_components/amcharts/dist/amcharts/pie.js', callback);
 	}
 	if (!$.fn.AmCharts){
 		LoadAmchartsScript();
@@ -239,7 +237,7 @@ function LoadAmchartsScripts(callback){
 //
 function LoadChartistScripts(callback){
 	function LoadChartistScript(){
-		$.getScript('plugins/chartist/chartist.min.js', callback);
+		$.getScript('bower_components/chartist/dist/chartist.min.js', callback);
 	}
 	if (!$.fn.Chartist){
 		LoadChartistScript();
@@ -256,10 +254,10 @@ function LoadChartistScripts(callback){
 //
 function LoadSpringyScripts(callback){
 	function LoadSpringyScript(){
-		$.getScript('plugins/springy/springy.js', LoadSpringyUIScript);
+		$.getScript('bower_components/springy/springy.js', LoadSpringyUIScript);
 	}
 	function LoadSpringyUIScript(){
-		$.getScript('plugins/springy/springyui.js', callback);
+		$.getScript('bower_components/springy/springyui.js', callback);
 	}
 	if (!$.fn.Springy){
 		LoadSpringyScript();
@@ -1091,7 +1089,7 @@ function DrawChartistChart5(){
 //
 function LoadFancyboxScript(callback){
 	if (!$.fn.fancybox){
-		$.getScript('plugins/fancybox/jquery.fancybox.js', callback);
+		$.getScript('bower_components/fancybox/source/jquery.fancybox.pack.js', callback);
 	}
 	else {
 		if (callback && typeof(callback) === "function") {
@@ -1105,7 +1103,7 @@ function LoadFancyboxScript(callback){
 //
 function LoadKnobScripts(callback){
 	if(!$.fn.knob){
-		$.getScript('plugins/jQuery-Knob/jquery.knob.js', callback);
+		$.getScript('bower_components/jquery-knob/dist/jquery.knob.min.js', callback);
 	}
 	else {
 		if (callback && typeof(callback) === "function") {
@@ -1119,7 +1117,7 @@ function LoadKnobScripts(callback){
 //
 function LoadSparkLineScript(callback){
 	if(!$.fn.sparkline){
-		$.getScript('plugins/sparkline/jquery.sparkline.min.js', callback);
+		$.getScript('bower_components/bower-jquery-sparkline/dist/jquery.sparkline.retina.js', callback);
 	}
 	else {
 		if (callback && typeof(callback) === "function") {
@@ -1476,16 +1474,16 @@ function DashboardTabChecker(){
 // Helper for run TinyMCE editor with textarea's
 //
 function TinyMCEStart(elem, mode){
-	var plugins = [];
+	var bower_components = [];
 	if (mode == 'extreme'){
-		plugins = [ "advlist anchor autolink autoresize autosave bbcode charmap code contextmenu directionality ",
+		bower_components = [ "advlist anchor autolink autoresize autosave bbcode charmap code contextmenu directionality ",
 			"emoticons fullpage fullscreen hr image insertdatetime layer legacyoutput",
 			"link lists media nonbreaking noneditable pagebreak paste preview print save searchreplace",
 			"tabfocus table template textcolor visualblocks visualchars wordcount"]
 	}
 	tinymce.init({selector: elem,
 		theme: "modern",
-		plugins: plugins,
+		bower_components: bower_components,
 		//content_css: "css/style.css",
 		toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons",
 		style_formats: [
@@ -2513,7 +2511,7 @@ function TestTable3(){
 			"sLengthMenu": '_MENU_'
 		},
 		"oTableTools": {
-			"sSwfPath": "plugins/datatables/copy_csv_xls_pdf.swf",
+			"sSwfPath": "bower_components/datatables/copy_csv_xls_pdf.swf",
 			"aButtons": [
 				"copy",
 				"print",
@@ -2887,7 +2885,7 @@ function CreateStockPage(){
 				$('#symbol').text(json.query.results.quote.Name);//Assign quote.Param to span tag
 				$('#bidRealtime').text(json.query.results.quote.BidRealtime);
 			});
-		}); 
+		});
 		$(function() {
 			$.getJSON(historicalQ, function(json) {
 				$.each(json.query.results.quote, function(i, quote) {//loop results.quote object
@@ -3493,5 +3491,3 @@ $(document).ready(function () {
 		$('#about').removeClass('about-h');
 	})
 });
-
-

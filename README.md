@@ -35,3 +35,30 @@ Springy http://getspringy.com/ 2.6.1 AS IS
 Chartist.js http://gionkunz.github.io/chartist-js/index.html 0.1.15 AS IS
 OpenStreetMap http://openlayers.org 2.13 BSD
 Leaflet.js http://leafletjs.com 0.7.3 AS IS
+
+### Usage
+
+Add into your ```bower.json``` file this theme like a dependency
+
+```json
+{
+"dependencies": {
+    "devoops-bootstrap-theme":">=2.0.0"
+  }
+}
+```
+Or simply run the command
+
+```shell
+bower install --save devoops-bootstrap-theme
+```
+
+After that, install task manager ```gulp``` and run the task to build dist files of dependencies this theme:
+
+```shell
+npm install
+
+# generate a release from dependencies that
+# need run additional tasks(grunt, gulp...) for this
+gulp build-deps
+```
