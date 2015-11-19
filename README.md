@@ -38,7 +38,7 @@ Leaflet.js http://leafletjs.com 0.7.3 AS IS
 
 ### Usage
 
-Add into your ```bower.json``` file this theme like a dependency
+1. Add into your ```bower.json``` file this theme like a dependency
 
 ```json
 {
@@ -53,12 +53,21 @@ Or simply run the command
 bower install --save devoops-bootstrap-theme
 ```
 
-After that, install task manager ```gulp``` and run the task to build dist files of dependencies this theme:
+2. Install node modules dependencies from `devoops` and yours bower packages. Use [rnpm](https://www.npmjs.com/package/rnpm) for this:
 
 ```shell
-npm install
+sudo npm install -g rnpm
 
-# generate a release from dependencies that
-# need run additional tasks(grunt, gulp...) for this
-gulp build-deps
+#install node modules recursively
+rnpm install
+```
+
+3. After that, install task manager [gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) and run the task to build dist files of dependencies this theme:
+
+```shell
+
+# Generate a release from dependencies that
+# need run additional tasks(grunt, gulp...)
+# for this, and run a simple webserver
+gulp serve
 ```

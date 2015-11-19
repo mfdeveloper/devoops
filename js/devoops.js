@@ -62,7 +62,7 @@ function LoadLeafletScript(callback){
 //
 function LoadTimePickerScript(callback){
 	if (!$.fn.timepicker){
-		$.getScript('bower_components/jqueryui-timepicker-addon/jquery-ui-timepicker-addon.min.js', callback);
+		$.getScript('bower_components/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js', callback);
 	}
 	else {
 		if (callback && typeof(callback) === "function") {
@@ -2781,8 +2781,8 @@ function FileUpload(){
 		},
 		thumbnails: {
 			placeholders: {
-				waitingPath: "assets/waiting-generic.png",
-				notAvailablePath: "assets/not_available-generic.png"
+				waitingPath: "bower_components/fine-uploader/_build/placeholders/waiting-generic.png",
+				notAvailablePath: "bower_components/fine-uploader/_build/placeholders/not_available-generic.png"
 			}
 		},
 		request: {
