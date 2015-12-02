@@ -1,273 +1,8 @@
 //
-//    Main script of DevOOPS v1.0 Bootstrap Theme
+//    Main script of DevOOPS v2.0.0 Bootstrap Theme
 //
 "use strict";
-/*-------------------------------------------
-	Dynamically load plugin scripts
----------------------------------------------*/
-//
-// Dynamically load Fullcalendar Plugin Script
-// homepage: http://arshaw.com/fullcalendar
-// require moment.js
-//
-function LoadCalendarScript(callback){
-	function LoadFullCalendarScript(){
-		if(!$.fn.fullCalendar){
-			$.getScript('bower_components/fullcalendar/dist/fullcalendar.min.js', callback);
-		}
-		else {
-			if (callback && typeof(callback) === "function") {
-				callback();
-			}
-		}
-	}
-	if (!$.fn.moment){
-		$.getScript('bower_components/moment/moment.js', LoadFullCalendarScript);
-	}
-	else {
-		LoadFullCalendarScript();
-	}
-}
-//
-// Dynamically load  OpenStreetMap Plugin
-// homepage: http://openlayers.org
-//
-function LoadOpenLayersScript(callback){
-	if (!$.fn.OpenLayers){
-		$.getScript('bower_components/openlayers/lib/OpenLayers.js', callback);
-	}
-	else {
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
-	}
-}
-//
-// Dynamically load  Leaflet Plugin
-// homepage: http://leafletjs.com
-//
-function LoadLeafletScript(callback){
-	if (!$.fn.L){
-		$.getScript('bower_components/leaflet/dist/leaflet.js', callback);
-	}
-	else {
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
-	}
-}
-//
-//  Dynamically load  jQuery Timepicker plugin
-//  homepage: http://trentrichardson.com/examples/timepicker/
-//
-function LoadTimePickerScript(callback){
-	if (!$.fn.timepicker){
-		$.getScript('bower_components/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js', callback);
-	}
-	else {
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
-	}
-}
-//
-//  Dynamically load Bootstrap Validator Plugin
-//  homepage: https://github.com/nghuuphuoc/bootstrapvalidator
-//
-function LoadBootstrapValidatorScript(callback){
-	if (!$.fn.bootstrapValidator){
-		$.getScript('bower_components/bootstrapvalidator/dist/js/bootstrapValidator.min.js', callback);
-	}
-	else {
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
-	}
-}
-//
-//  Dynamically load jQuery Select2 plugin
-//  homepage: https://github.com/ivaynberg/select2  v3.4.5  license - GPL2
-//
-function LoadSelect2Script(callback){
-	if (!$.fn.select2){
-		$.getScript('bower_components/select2/dist/js/select2.min.js', callback);
-	}
-	else {
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
-	}
-}
-//
-//  Dynamically load DataTables plugin
-//  homepage: http://datatables.net v1.9.4 license - GPL or BSD
-//
-function LoadDataTablesScripts(callback){
-	function LoadDatatables(){
-		$.getScript('bower_components/datatables/media/js/jquery.dataTables.min.js', function(){
-				$.getScript('bower_components/datatables-tabletools/js/dataTables.tableTools.js', function(){
-					$.getScript('bower_components/datatables/media/js/dataTables.bootstrap.min.js', callback);
-				});
-		});
-	}
-	if (!$.fn.dataTables){
-		LoadDatatables();
-	}
-	else {
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
-	}
-}
-//
-//  Dynamically load Widen FineUploader
-//  homepage: https://github.com/Widen/fine-uploader  v5.0.5 license - GPL3
-//
-function LoadFineUploader(callback){
-	if (!$.fn.fineuploader){
-		$.getScript('bower_components/fine-uploader/_build/jquery.fine-uploader.min.js', callback);
-	}
-	else {
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
-	}
-}
-//
-//  Dynamically load xCharts plugin
-//  homepage: http://tenxer.github.io/xcharts/ v0.3.0 license - MIT
-//  Required D3 plugin http://d3js.org/ v3.4.11 license - MIT
-//
-function LoadXChartScript(callback){
-	function LoadXChart(){
-		$.getScript('bower_components/bower-xcharts/xcharts.min.js', callback);
-	}
-	function LoadD3Script(){
-		if (!$.fn.d3){
-			$.getScript('bower_components/d3/d3.min.js', LoadXChart)
-		}
-		else {
-			LoadXChart();
-		}
-	}
-	if (!$.fn.xcharts){
-		LoadD3Script();
-	}
-	else {
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
-	}
-}
-//
-//  Dynamically load Flot plugin
-//  homepage: http://www.flotcharts.org  v0.8.2 license- MIT
-//
-function LoadFlotScripts(callback){
-	function LoadFlotScript(){
-		$.getScript('bower_components/flot/jquery.flot.js', LoadFlotResizeScript);
-	}
-	function LoadFlotResizeScript(){
-		$.getScript('bower_components/flot/jquery.flot.resize.js', LoadFlotTimeScript);
-	}
-	function LoadFlotTimeScript(){
-		$.getScript('bower_components/flot/jquery.flot.time.js', callback);
-	}
-	if (!$.fn.flot){
-		LoadFlotScript();
-	}
-	else {
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
-	}
-}
-//
-//  Dynamically load Morris Charts plugin
-//  homepage: http://www.oesmith.co.uk/morris.js/ v0.4.3 License - MIT
-//  require Raphael http://raphael.js
-//
-function LoadMorrisScripts(callback){
-	function LoadMorrisScript(){
-		if(!$.fn.Morris){
-			$.getScript('bower_components/morris.js/morris.min.js', callback);
-		}
-		else {
-			if (callback && typeof(callback) === "function") {
-				callback();
-			}
-		}
-	}
-	if (!$.fn.raphael){
-		$.getScript('bower_components/raphael/raphael-min.js', LoadMorrisScript);
-	}
-	else {
-		LoadMorrisScript();
-	}
-}
-//
-//  Dynamically load Am Charts plugin
-//  homepage: http://www.amcharts.com/ 3.11.1 free with linkware
-//
-function LoadAmchartsScripts(callback){
-	function LoadAmchartsScript(){
-		$.getScript('bower_components/amcharts/dist/amcharts/amcharts.js', LoadFunnelScript);
-	}
-	function LoadFunnelScript(){
-		$.getScript('bower_components/amcharts/dist/amcharts/funnel.js', LoadSerialScript);
-	}
-	function LoadSerialScript(){
-		$.getScript('bower_components/amcharts/dist/amcharts/serial.js', LoadPieScript);
-	}
-	function LoadPieScript(){
-		$.getScript('bower_components/amcharts/dist/amcharts/pie.js', callback);
-	}
-	if (!$.fn.AmCharts){
-		LoadAmchartsScript();
-	}
-	else {
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
-	}
-}
-//
-//  Dynamically load Chartist plugin
-//  homepage: http://gionkunz.github.io/chartist-js/index.html 0.1.15 AS IS
-//
-function LoadChartistScripts(callback){
-	function LoadChartistScript(){
-		$.getScript('bower_components/chartist/dist/chartist.min.js', callback);
-	}
-	if (!$.fn.Chartist){
-		LoadChartistScript();
-	}
-	else {
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
-	}
-}
-//
-//  Dynamically load Springy plugin
-//  homepage: http://getspringy.com/ 2.6.1 as is
-//
-function LoadSpringyScripts(callback){
-	function LoadSpringyScript(){
-		$.getScript('bower_components/springy/springy.js', LoadSpringyUIScript);
-	}
-	function LoadSpringyUIScript(){
-		$.getScript('bower_components/springy/springyui.js', callback);
-	}
-	if (!$.fn.Springy){
-		LoadSpringyScript();
-	}
-	else {
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
-	}
-}
+
 // Draw all test Am Charts
 function DrawAllAmCharts(){
 	DrawAmChart1();
@@ -1087,44 +822,16 @@ function DrawChartistChart5(){
 //  Dynamically load Fancybox 2 plugin
 //  homepage: http://fancyapps.com/fancybox/ v2.1.5 License - MIT
 //
-function LoadFancyboxScript(callback){
-	if (!$.fn.fancybox){
-		$.getScript('bower_components/fancybox/source/jquery.fancybox.pack.js', callback);
-	}
-	else {
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
-	}
-}
+
 //
 //  Dynamically load jQuery-Knob plugin
 //  homepage: http://anthonyterrien.com/knob/  v1.2.5 License- MIT or GPL
 //
-function LoadKnobScripts(callback){
-	if(!$.fn.knob){
-		$.getScript('bower_components/jquery-knob/dist/jquery.knob.min.js', callback);
-	}
-	else {
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
-	}
-}
+
 //
 //  Dynamically load Sparkline plugin
 //  homepage: http://omnipotent.net/jquery.sparkline v2.1.2  License - BSD
 //
-function LoadSparkLineScript(callback){
-	if(!$.fn.sparkline){
-		$.getScript('bower_components/bower-jquery-sparkline/dist/jquery.sparkline.retina.js', callback);
-	}
-	else {
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
-	}
-}
 /*-------------------------------------------
 	Main scripts used by theme
 ---------------------------------------------*/
@@ -1301,7 +1008,7 @@ function DrawKnob(elem){
 		},
 		release : function (value) {
 			//console.log(this.$.attr('value'));
-			console.log("release : " + value);
+			//console.log("release : " + value);
 		},
 		cancel : function () {
 			console.log("cancel : ", this);
@@ -2800,6 +2507,8 @@ function FileUpload(){
 // Load GeoIP JSON data and draw 3 maps
 //
 function LoadTestMap(){
+	// TODO: Needs change this service by Google Maps free public api
+	// because this telize service was shutdown on 2015-11-15
 	$.getJSON("http://www.telize.com/geoip?callback=?",
 		function(json) {
 			var osmap = new OpenLayers.Layer.OSM("OpenStreetMap");//создание слоя карты
@@ -2829,6 +2538,8 @@ function LoadTestMap(){
 // Create Fullscreen Map
 //
 function FullScreenMap(){
+	// TODO: Needs change this service by Google Maps free public api
+	// because this telize service was shutdown on 2015-11-15
 	$.getJSON("http://www.telize.com/geoip?callback=?",
 		function(json) {
 			var osmap = new OpenLayers.Layer.OSM("OpenStreetMap");//создание слоя карты
@@ -3331,12 +3042,7 @@ function DrawCalendar(){
 			}
 		});
 }
-//
-// Load scripts and draw Calendar
-//
-function DrawFullCalendar(){
-	LoadCalendarScript(DrawCalendar);
-}
+
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 //
